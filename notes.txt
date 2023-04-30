@@ -1,0 +1,32 @@
+github actions is similar to CI/CD and Jenkins
+
+uses:
+deployment
+linting
+unit testing
+
+working:
+triggers-> push to github
+setup jobs-> run when triggers are hit
+output i.e. a job is success or not
+
+charged per minutes
+
+configure github actions
+-> create a config file
+-> configure docker hub auth
+
+Docker hub:
+base images
+pull images from docker
+rate limits
+100 images / 6hrs
+auth users 200 pull images/6hrs
+
+github actions uses shared ip thus configure with docker hub
+so 200 pulls are to us and us only
+
+so how to authenticate?
+-> register with dockerhub
+-> use docker login
+-> add secrets to projects[variables to projects]
