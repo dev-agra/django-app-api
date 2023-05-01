@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from .views import add_sum
-from rest_framework.test import APIClient
+# from rest_framework.test import APIClient
 
 # Unit testing
 class Test_SUM(SimpleTestCase):
