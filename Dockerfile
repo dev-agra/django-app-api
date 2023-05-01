@@ -21,6 +21,14 @@ ARG DEV=false
 RUN python -m venv /py && \ 
     #below commands to upgrade pip and install dependencies
     /py/bin/pip install --upgrade pip && \
+
+    # installing the postgresql client
+    apk add --update --no-cache postgresql-client && \
+
+    # similar but with virtual, virtual dependencies groups packesg into tmp-build-deps
+    apk add --update --no-cache --virtual .tmp-build-deps \
+    # packages to install
+        build-base postgresql-dev musl-dev && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     # when DEV is true docker installs requirements.dev dependencies i.e. the development dependencies
     # else production dependencies are installed requirements.dev.txt
@@ -29,6 +37,8 @@ RUN python -m venv /py && \
     fi && \
     # extra dependencie
     rm -rf /tmp && \
+    # removes the packages installed earlier[lightweight and clean docker image]
+    apk del .tmp-build-deps && \
     adduser \
         --disabled-password \
         --no-create-home \

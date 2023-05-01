@@ -1,0 +1,107 @@
+github actions is similar to CI/CD and Jenkins
+
+uses:
+deployment
+linting
+unit testing
+
+working:
+triggers-> push to github
+setup jobs-> run when triggers are hit
+output i.e. a job is success or not
+
+charged per minutes
+
+configure github actions
+-> create a config file
+-> configure docker hub auth
+
+Docker hub:
+base images
+pull images from docker
+rate limits
+100 images / 6hrs
+auth users 200 pull images/6hrs
+
+github actions uses shared ip thus configure with docker hub
+so 200 pulls are to us and us only
+
+so how to authenticate?
+-> register with dockerhub
+-> use docker login
+-> add secrets to projects[variables to projects]
+
+
+Django test
+-> based on unittest lib
+-> DRF additional features
+
+How?
+place test.py in each app
+or
+test/ subdirectory (only one way) -> must have __init__.py in each app
+
+test database
+test code that uses DB
+creates a diff test database
+happens for every test
+
+test classes:
+SimpleTestCase -> no DB
+TestCase -> normal with DB
+
+
+prefix everything related to test with test_
+
+Mocking
+->override or change behaviour of dependencies
+->isolation of code being tested
+
+why mocking?
+-> avoid external relying
+-> avoid unintended consequences like overloading
+
+example:
+register user -> create user -> send email
+so to test it we wouldn't want to send user email so we change the codebase accordingly
+
+how to mock?
+use unittest.mock
+MagicMock/Mock -> replace real obj
+patch -> overrides code obj
+
+use APIClient
+make requests
+check result
+override auth
+
+Testing issues
+-> not running(missing __init__, indentation, both /tests dir and test module so confusing)
+
+
+Django with database
+needs to know
+-> engine-type
+-> hostname
+-> port
+-> db name
+-> username
+-> password
+
+
+Environment Variable:
+-> pull config values from env variables
+-> local or prod
+-> single pkace of configuration
+-> easy with python-> os.environ.get('DB_HOST)
+-> Psycopg2 is used for django to connect to postgres
+
+Psycopg2
+-> psycopg2-binary - ok for dev but not prod - dependencies -> C compiler, python3, libq-dev
+-> psycopg2 - compiles froms source - easy for docker
+
+for alpine image
+postgresql-client
+build-base
+postgres-dev
+musl-dev

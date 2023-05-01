@@ -15,9 +15,47 @@ services:
       - "8000:8000"
 
     # map directory from system to docker container i.e. app to docker so changes in code is reflected in real time
+    # maps directory in container to local machine(persistent data)
     volumes:
       - ./app:/app
 
     # command used to run service
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASS=changeme
+    # app service depends on db so app waits for db to start before starting up
+    depends_on:
+      - db
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+    # for local development
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
+
+
+
+
+
+volumes:
+  dev-db-data:
+
+
+  
+  # app:                    -> setting the depends_on of app on db to start db
+  #   depends_on:           -> docker compose creates a network
+  #     - db
+  # db:                     -> app service can use the db hostname
+  #   image: postgres:13-alpine
+  #   volumes:
+  #     - dev-db-data:/var/lib/postgresql/data
+# volumes:
+#   dev-db-data:
+#   dev-static-data:
