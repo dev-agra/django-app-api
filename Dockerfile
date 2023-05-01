@@ -21,10 +21,8 @@ ARG DEV=false
 RUN python -m venv /py && \ 
     #below commands to upgrade pip and install dependencies
     /py/bin/pip install --upgrade pip && \
-
     # installing the postgresql client
     apk add --update --no-cache postgresql-client && \
-
     # similar but with virtual, virtual dependencies groups packesg into tmp-build-deps
     apk add --update --no-cache --virtual .tmp-build-deps \
     # packages to install
