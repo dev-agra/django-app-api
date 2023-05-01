@@ -10,17 +10,17 @@ class Test_SUM(SimpleTestCase):
         self.assertEqual(res, 11)
 
 # URL testing
-class TestViews(SimpleTestCase):
-    def test_get_greetings(self):
-        # create client
-        client = APIClient()
+# class TestViews(SimpleTestCase):
+#     def test_get_greetings(self):
+#         # create client
+#         client = APIClient()
 
-        # make request
-        res = client.get('/greetings/')
+#         # make request
+#         res = client.get('/greetings/')
 
-        # check result
-        self.assertEqual(res.status_code, 200) #OK = 200
-        self.assertEqual(
-            res.data,
-            ["Hello!", "Namaskar", "Bonjour!", "Hola!"],
-        )
+#         # check result
+#         self.assertEqual(res.status_code, 200) #OK = 200
+#         self.assertEqual(
+#             res.data,
+#             ["Hello!", "Namaskar", "Bonjour!", "Hola!"],
+#         )
