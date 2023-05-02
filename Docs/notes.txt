@@ -112,3 +112,27 @@ depends_on makes sure that service starts but doesn't make sure about the applic
 i.e. services starts but no garantee the application is running in it
 
 Solution is -> WAIT FOR DB
+
+Django ORM
+object relational mapper
+-> abstraction layer for data; django handles db structure and changes
+-> focus on python code
+-> use any db
+
+use ORM
+-> define models
+-> generate migration files
+-> setup db (run migrations file)
+-> store data
+
+Model
+each model maps to a table
+models contain(name, fields(columns), Other metadata(Relations), Python Logic)
+
+Create migrations
+-> ensure app is in settings.py
+-> checks model and see if it exists before
+
+-> best to run migrations after "wait _for_db" i.e. race condition so that the db is ready and any changes is updated in the db
+
+Update Docker Compose so cmd of "wait_for_db" runs before the server starting and CI/CD config too
