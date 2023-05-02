@@ -105,3 +105,10 @@ postgresql-client
 build-base
 postgres-dev
 musl-dev
+
+
+DB RACE CONDITION
+depends_on makes sure that service starts but doesn't make sure about the application is running
+i.e. services starts but no garantee the application is running in it
+
+Solution is -> WAIT FOR DB
