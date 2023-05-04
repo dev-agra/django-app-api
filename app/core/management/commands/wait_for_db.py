@@ -9,7 +9,7 @@ from django.core.management import BaseCommand
 
 
 class Command(BaseCommand):
-    # DJnago cmd to wait for db
+    # Django cmd to wait for db
 
     def handle(self, *arg, **options):
         """Entry point for cmd"""

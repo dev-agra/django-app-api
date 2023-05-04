@@ -136,3 +136,27 @@ Create migrations
 -> best to run migrations after "wait _for_db" i.e. race condition so that the db is ready and any changes is updated in the db
 
 Update Docker Compose so cmd of "wait_for_db" runs before the server starting and CI/CD config too
+
+Django Authentication:
+Django authentication is built-in
+integrates with django admin
+default user model->(username rather mail, not customise)
+
+-> create new cutom user model
+-> allows email rather username
+-> future proof
+
+How to cutomise User Model:
+-> create user model from AbstractBaseUser and PermissionsMixin
+-> custom manager
+-> set AUTH_USER_MODEL
+-> create and run migrations
+
+AbstractBaseUser
+-> provides features for authentication
+->                                                                                                                                                                                
+
+PermissionsMixin
+-> support for django permission system
+-> includes fields and methods
+
