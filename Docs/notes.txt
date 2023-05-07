@@ -160,3 +160,53 @@ PermissionsMixin
 -> support for django permission system
 -> includes fields and methods
 
+Django Admin
+-> interface to control things
+-> less code required
+-> enable per model
+
+"admin.set.reigtser(modelname)"
+
+Customize Django Admin
+-> create class based on ModelAdmin and UserAdmin
+-> override it
+
+1) Change list of objects
+-> orderig(order of item appear)
+-> list_display(field to appear in list)
+
+2) Add/Update page
+-> fieldsets
+-> readonly_fields
+
+API DOCUMENTATION
+-> developers to use
+
+WHAT TO DOCUMENT
+-> everything needed to use API
+-> available endpoints(paths)...say.../api/recipes
+-> supported methods (GET, POST, PUT, PATCH, DELETE)
+-> format of payloads [input] (parameters, JSON)
+-> format of response (JSON)
+-> authentication process
+
+OPTION OF DOCUMENT
+-> word doc
+-> markdown
+-> Automated(metadata)(comments)(generate documentation)
+
+AUTO DOCS IN DRF
+-> 3rd party library (drf-spectacular)
+-> follows latest openai api standard
+-> generates schema
+-> schema helps to create browsable web interface (test req, auth)
+
+HOW IT WORKS
+-> generate schema
+-> parse schema file
+
+OPENAPI Schema
+-> standard for desc API
+-> popular
+-> swagger (we uses it)
+-> YAML or JSON
